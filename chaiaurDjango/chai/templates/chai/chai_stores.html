@@ -1,0 +1,19 @@
+{% extends "layout.html" %}
+
+{% block content %}
+<h1 class="text-center fs-4 text-white bg-dark rounded"> test content for forms</h1>
+
+<form class="border border-dark bg-success rounded d-inline" action="" method="post">
+    {% csrf_token %}
+       {{form.as_p}}
+    <button class="m-3 bg-dark text-light" type="submit">Search Store</button>
+</form>
+{% if store %}
+<h1 class="bg-dark text-white p-3" >Stores Available</h1>
+<ul>
+    {% for store in stores %}
+      <li class="text-dark">{{store.name}} - {{store.loction}}</li>
+    {% endfor %}
+</ul>
+{% endif %}
+{% endblock  %}

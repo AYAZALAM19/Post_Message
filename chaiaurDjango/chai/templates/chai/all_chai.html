@@ -1,0 +1,26 @@
+{% extends "layout.html" %}
+
+{% load static %}
+
+{% block title %}
+Chai Page
+{% endblock %}
+
+{% block content %}
+<h1 class="bg-success rounded p-3 rounded">All Chai for you</h1>
+<div class=" ">
+    {% for chai in chais %}
+        <div class="chai-item d-flex">
+            <img class='w-25' src="{{ chai.image.url }}" alt="{{ chai.name }}">
+            <h3>{{ chai.name }}</h3>
+            <a href="">
+                <button class="border p-2 text-white bg-dark">
+                    
+                    {{ chai.type }} - {{ chai.id }}
+                
+                </button>
+            </a>
+        </div>
+    {% endfor %}
+</div>
+{% endblock %}
